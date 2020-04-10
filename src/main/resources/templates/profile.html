@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thmeleaf.org">
+<head>
+    <title th:text="${sectionName}"></title>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/xianyan.css" />
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icons" />
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container-fluid main">
+    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'questions'}">
+        <h3>
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span th:text="${sectionName}"></span>
+        </h3>
+        <hr/>
+        <div th:each="question : ${pagination}">
+            <div class="media" th:each="questions : ${question.data}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-circle" th:src="${questions.user.avatarUrl}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a th:href="@{'/question/' + ${questions.id}}" th:text="${questions.title}" style="text-decoration: none"></a>
+                        <a th:href="@{'/publish/' + ${questions.id}}"
+                           th:if="${session.user != null && session.user.id == questions.creator}"
+                           class="glyphicon glyphicon-pencil icon text_desc"
+                           style="text-decoration: none">&nbsp;编辑  &nbsp;</a>
+                    </h4>
+                    <span class="text_desc">
+                        <span class="text_desc" th:text="${questions.commentCount}"></span> 个回复 ·
+                        <span class="text_desc" th:text="${questions.viewCount}"></span> 个浏览 ·
+                        <span class="text_desc" th:text="${questions.likeCount}"></span> 个喜欢 ·
+                        <span class="text_desc" th:text="${#dates.format(questions.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                    </span>
+                </div>
+                <div class="panel-heading xianyan-menu">
+
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination" th:each="pages : ${pagination}">
+                <li th:if="${pages.showFirstPage}">
+                    <a th:href="@{'/profile/'+${section}(page=1)}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li th:each="page : ${pages.pages}" th:class="${pages.page == page} ? 'active' : ''">
+                    <a th:href="@{'/profile/'+${section}(page=${page})}" th:text="${page}" >page</a>
+                </li>
+                <li th:if="${pages.showEndPage}">
+                    <a th:href="@{'/profile/'+${section}(page=${pages.totalPage})}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'replies'}">
+        <h3>
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span th:text="${sectionName}"></span>
+        </h3>
+        <hr/>
+        <div class="media" th:each="notifications : ${pagination}" style="margin: 0px 66px">
+            <div class="media-body">
+                <p class="media-heading" th:each="notification : ${notifications.data}" style="margin-bottom: 10px; font-size: 17px">
+                    <a style="text-decoration: none" th:href="@{'notification/' + ${notification.id}}"
+                       th:text="${notification.notifierName}"></a>
+                    <span th:text="${notification.typeName}"></span>
+                    <a style="text-decoration: none" th:href="@{'/notification/' + ${notification.id}}"
+                       th:text="${notification.outerTitle}"></a>
+                    <span th:class="${notification.status == 0} ? 'label label-danger' : 'label label-info'"
+                          th:text="${notification.status == 0} ? '未读' : '已读'"></span>
+                    <span th:text="${#dates.format(notification.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                </p>
+            </div>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination" th:each="pages : ${pagination}">
+                <li th:if="${pages.showFirstPage}">
+                    <a th:href="@{'/profile/'+${section}(page=1)}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li th:each="page : ${pages.pages}" th:class="${pages.page == page} ? 'active' : ''">
+                    <a th:href="@{'/profile/'+${section}(page=${page})}" th:text="${page}" >page</a>
+                </li>
+                <li th:if="${pages.showEndPage}">
+                    <a th:href="@{'/profile/'+${section}(page=${pages.totalPage})}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <div class="list-group main">
+            <a href="/profile/questions" th:class="${section == 'questions'}? 'list-group-item active' : 'list-group-item'">
+                我的问题
+                <span class="badge xianyan-badge-color" th:text="${session.commentCount}">14</span>
+            </a>
+            <a href="/profile/replies" th:class="${section == 'replies'}? 'list-group-item active' : 'list-group-item'">
+                我的回复
+                <span class="badge xianyan-badge-color" th:text="${session.unreadCount}">14</span>
+            </a>
+            <a href="#" th:class="${section == 'question'}? 'list-group-item active' : 'list-group-item'">
+                我的关注
+                <span class="badge xianyan-badge-color">14</span>
+            </a>
+            <a href="#" th:class="${section == 'question'}? 'list-group-item active' : 'list-group-item'">
+                我的回复
+                <span class="badge xianyan-badge-color">14</span>
+            </a>
+            <a href="#" th:class="${section == 'question'}? 'list-group-item active' : 'list-group-item'">
+                我的回复
+                <span class="badge xianyan-badge-color">14</span>
+            </a>
+        </div>
+        <div th:insert="~{navigation :: copyRight}"></div>
+    </div>
+</div>
+<div th:insert="~{navigation :: footer}"></div>
+</body>
+</html>
