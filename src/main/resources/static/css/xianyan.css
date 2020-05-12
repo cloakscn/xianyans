@@ -2118,10 +2118,18 @@ body .fly-user-main {
     padding: 15px;
 }
 
-.btn-publish {
-    float: right;;
-    margin-bottom: 15px;
+/* 表单 */
+.form-label{
+    border: 1px solid #ccc;
+    background-color: #eee;
+    height: 35px;
+    width: 100px;
+    line-height: 32px;
+    margin-left: 10px;
+    padding: 0 20px 0;
+    border-radius: 5%;
 }
+
 
 .media-object {
     width: 55px;
@@ -2182,4 +2190,9 @@ body .fly-user-main {
 
 .xianyan-badge-color {
     background-color: #29ae8c;
+}
+
+.xianyan-footer {
+    margin: 50px 190px;
+    text-align: center;
 }

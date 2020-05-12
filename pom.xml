@@ -129,6 +129,26 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>cn.itycu</groupId>
+                <artifactId>itycu-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <msg>this is a msg</msg>
+                    <options>
+                        <option>'1'</option>
+                        <option>2</option>
+                    </options>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>itycuedu</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.7</version>
@@ -139,7 +159,6 @@
                         <artifactId>mysql-connector-java</artifactId>
                         <version>5.1.48</version>
                     </dependency>
-
                 </dependencies>
             </plugin>
         </plugins>
