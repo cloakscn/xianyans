@@ -31,7 +31,7 @@ public class AuthorizeController {
     @Value("${github.client.secret}")
     private String clientSecret;
 
-    @Value("${github.redirect.uri}")
+    @Value("${github.redirect.url}")
     private String redirectUrl;
 
     @Autowired

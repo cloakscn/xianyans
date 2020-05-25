@@ -13,7 +13,13 @@
                         userId="root"
                         password="haosql">
         </jdbcConnection>
-
+        <!--
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/xianyan?useSSL=false"
+                        userId="root"
+                        password="haosql">
+        </jdbcConnection>
+        -->
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>

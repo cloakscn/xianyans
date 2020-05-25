@@ -32,7 +32,8 @@
                 </li>
                 <li th:if="${session.user == null}">
                     <!--                    <a href="user/login.html">登入</a>-->
-                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
+<!--                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>-->
+                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='b7665c9413e35dabc3f5',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
                 </li>
                 <li th:if="${session.user == null}">
                     <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入"
