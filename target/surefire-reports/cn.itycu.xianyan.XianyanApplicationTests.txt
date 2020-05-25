@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cn.itycu.xianyan.XianyanApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.276 s - in cn.itycu.xianyan.XianyanApplicationTests

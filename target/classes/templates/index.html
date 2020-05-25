@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thmeleaf.org">
+<head>
+    <title>闲言</title>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/xianyan.css" />
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icons" />
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body  style="background-color: #EAEAEA">
+<div class="container-fluid main">
+    <div th:insert="~{navigation :: nav}"></div>
+    <div th:insert="~{header :: header}"></div>
+    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+<!--            置顶模块-->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;置顶
+                <span class="text-right" style="float: right">
+                    <a href="" class="layui-this">查看更多</a>
+                </span>
+            </div>
+            <div class="panel-body" th:each="questionsByStick : ${paginationByStick}">
+                <div class="media" th:each="questionByStick : ${questionsByStick.data}">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-rounded" th:src="${questionByStick.user.avatarUrl}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading" >
+                            <a th:href="@{'/publish/' + ${questionByStick.id}}" th:text="${questionByStick.title}" style="text-decoration: none"></a>
+                        </h4>
+                        <span th:text="${questionByStick.description}" class="description"></span>
+                        <span class="text_desc"><span class="text_desc" th:text="${questionByStick.commentCount}"></span> 个回复 ·<span class="text_desc" th:text="${questionByStick.viewCount}"></span> 个浏览 ·<span class="text_desc" th:text="${questionByStick.likeCount}"></span> 个喜欢 ·<span class="text_desc" th:text="${#dates.format(questionByStick.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">温馨通道</div>
+            <div class="panel-body">
+                <ul>
+                    <li>
+                        <a href="http://fly.layui.com/jie/4281/" target="_blank">layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star</a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/4281/" target="_blank">layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star</a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/4281/" target="_blank">layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star</a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/4281/" target="_blank">layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star</a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/5366/" target="_blank">
+                            layui 常见问题的处理和实用干货集锦
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/4281/" target="_blank">layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star</a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/5366/" target="_blank">
+                            layui 常见问题的处理和实用干货集锦
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://fly.layui.com/jie/4281/" target="_blank">layui 的 GitHub 及 Gitee (码云) 仓库，欢迎Star</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                签到 |
+                <a href="javascript:;">说明</a>
+                |
+                <a href="javascript:;">活跃榜</a>
+                <span>已连续签到<cite>16</cite>天</span>
+            </div>
+            <div class="panel-body">
+                <button class="btn main-color" type="button">今日签到</button>
+                <span>可获得<cite>5</cite>飞吻</span>
+
+                <!-- 已签到状态 -->
+                <!--
+                <button class="layui-btn layui-btn-disabled">今日已签到</button>
+                <span>获得了<cite>20</cite>飞吻</span>
+                -->
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                    <a href="" class="layui-this">综合</a>
+                    |
+                    <a href="">未结</a>
+                    |
+                    <a href="">已结</a>
+                    |
+                    <a href="">精华</a>
+                    <span class="text-right" style="float: right">
+                    <a href="" class="layui-this">按最新</a>
+                    |
+                    <a href="">按热议</a>
+                    </span>
+            </div>
+            <div class="panel-body" th:each="question : ${pagination}">
+                <div class="media" th:each="questions : ${question.data}">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-rounded" th:src="${questions.user.avatarUrl}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading" >
+                            <a th:href="@{'/question/' + ${questions.id}}" th:text="${questions.title}" style="text-decoration: none"></a>
+                        </h4>
+                        <span th:text="${questions.description}" class="description"></span><br/>
+                        <span class="text_desc"><span class="text_desc" th:text="${questions.commentCount}"></span> 个回复 ·<span class="text_desc" th:text="${questions.viewCount}"></span> 个浏览 ·<span class="text_desc" th:text="${questions.likeCount}"></span> 个喜欢 ·<span class="text_desc" th:text="${#dates.format(questions.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span></span>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination" th:each="pages : ${pagination}">
+                        <li th:if="${pages.showFirstPage}">
+                            <a th:href="@{/(page=1), search=${search}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li th:each="page : ${pages.pages}" th:class="${pages.page == page} ? 'active' : ''">
+                            <a th:href="@{/(page=${page}, search=${search})}" th:text="${page}" >page</a>
+                        </li>
+                        <li th:if="${pages.showEndPage}">
+                            <a th:href="@{/(page=${pages.totalPage}, search=${search})}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">回贴周榜</div>
+            <div class="panel-body row fly-rank">
+                <dl>
+                    <!--<i class="layui-icon fly-loading">&#xe63d;</i>-->
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                    <dd>
+                        <a href="user/home.html">
+                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"><cite>贤心</cite><i>106次回答</i>
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">本周热议</div>
+            <div class="panel-body">
+                <div>
+                    <a href="jie/detail.html">基于 layui 的极简社区页面模版</a>
+                    <span><i class="glyphicon glyphicon-comment"></i> 16</span>
+                </div>
+                <div>
+                    <a href="jie/detail.html">基于 layui 的极简社区页面模版</a>
+                    <span><i class="glyphicon glyphicon-comment"></i> 16</span>
+                </div>
+                <div>
+                    <a href="jie/detail.html">基于 layui 的极简社区页面模版</a>
+                    <span><i class="glyphicon glyphicon-comment"></i> 16</span>
+                </div>
+                <div>
+                    <a href="jie/detail.html">基于 layui 的极简社区页面模版</a>
+                    <span><i class="glyphicon glyphicon-comment"></i> 16</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">这里可作为广告区域</div>
+            <div class="panel-body">
+<!--                <img src="image/wechat.png">-->
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">友情链接</div>
+            <div class="fly-panel-main panel-body">
+                <a href="http://www.layui.com/" target="_blank">layui</a>
+
+                <a href="http://layim.layui.com/" target="_blank">WebIM</a>
+
+                <a href="http://layer.layui.com/" target="_blank">layer</a>
+
+                <a href="http://www.layui.com/laydate/" target="_blank">layDate</a>
+
+                <a href="#">申请友链</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="~{navigation :: footer}"></div>
+</body>
+<script type="application/javascript">
+    window.onload = function () {
+        // debugger;
+        const closable = window.localStorage.getItem("closable");
+        if (closable) {
+            window.close();
+            window.localStorage.removeItem("closable");
+        }
+
+    }
+</script>
+</html>

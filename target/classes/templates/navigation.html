@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thmeleaf.org">
+<body>
+<div th:fragment="nav">
+    <nav class="navbar fly-header" id="nav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">闲言</span>
+            </button>
+            <a class="navbar-brand" href="/">闲言</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a href="/"><i class="iconfont icon-jiaoliu"></i></a>
+                </li>
+                <li>
+                    <a href="case/case.html"><i class="iconfont icon-iconmingxinganli"></i></a>
+                </li>
+                <li>
+                    <a href="http://www.layui.com/" target="_blank"><i class="iconfont icon-ui"></i></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- 未登入的状态 -->
+                <li th:if="${session.user == null}">
+                    <a class="iconfont icon-touxiang layui-hide-xs" href="/login"></a>
+                </li>
+                <li th:if="${session.user == null}">
+                    <a href="user/reg.html">注册</a>
+                </li>
+                <li th:if="${session.user == null}">
+                    <!--                    <a href="user/login.html">登入</a>-->
+<!--                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>-->
+                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='b7665c9413e35dabc3f5',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
+                </li>
+                <li th:if="${session.user == null}">
+                    <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入"
+                       class="iconfont icon-qq"></a>
+                </li>
+                <li th:if="${session.user == null}">
+                    <a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入"
+                       class="iconfont icon-weibo"></a>
+                </li>
+
+                <!-- 登入后的状态 -->
+                <li class="dropdown" th:if="${session.user != null}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <cite class="layui-hide-xs" th:text="${session.user.getName()}"></cite>
+                        <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
+                        <i class="layui-badge fly-badge-vip layui-hide-xs">VIP3</i>
+                        <img th:href="${session.user.avatarUrl}">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/profile/questions">我的问题</a></li>
+                        <li><a href="/profile/replies"><i class="glyphicon glyphicon-bell"></i>我的消息 <span class="badge xianyan-badge-color" th:text="${session.unreadCount}"></span></a></li>
+                        <li><a href="#">我的主页</a></li>
+                        <li><a href="#">基本设置</a></li>
+                        <li><a href="/logout">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</div>
+
+<div th:fragment="footer">
+    <div class="main xianyan-footer" style="font-size: 16px">
+        <p>©1999-2020 www.itycu.cn 闲言中文社区·</p>
+        <p>
+            <a href="#">案例</a>
+            <a href="#">支持</a>
+            <a href="#">GitHub</a>
+            <a href="#">码云</a>
+            <a href="#">公众号</a>
+            <a href="#">京ICP备00000000号</a>
+        </p>
+        <div>
+            <h5>感谢以下平台提供支持</h5><br/>
+            <p>运城学院&nbsp;数学与信息技术学院&nbsp;协同创新实验室&nbsp;微尘工作室</p>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="copyRight" class="panel panel-success xianyan-panel">
+    <div class="panel-heading">相关问题</div>
+    <div class="panel-body">
+        <table>
+            <tbody>
+            <tr>
+                <th style="width: 140px">kefu@csdn.net</th>
+                <th>客服论坛</th>
+            </tr>
+            <tr>
+                <th style="width: 140px">客服</th>
+                <th>400-660-0108</th>
+            </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <table>
+            <tbody style="align-content: center">
+            <tr>
+                <th>&nbsp;&nbsp;关于我们&nbsp;</th>
+                <th>招聘&nbsp;&nbsp;</th>
+                <th>广告服务&nbsp;</th>
+                <th>网站地图&nbsp;</th>
+            </tr>
+            </tbody>
+        </table>
+        <hr/>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thmeleaf.org">
+<head>
+    <title th:text="${question.title}"></title>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/xianyan.css" />
+    <link rel="stylesheet" href="/css/editormd.preview.css" />
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icons" />
+    <script type="application/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="application/javascript" src="/js/xianyan.js"></script>
+    <script type="application/javascript" src="/js/moment.js"></script>
+    <script type="application/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript" src="/js/editormd.js"></script>
+    <script type="application/javascript" src="/js/lib/marked.min.js"></script>
+    <script type="application/javascript" src="/js/lib/prettify.min.js"></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container-fluid main">
+    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <h3>
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span th:text="${question.title}"></span>
+        </h3>
+        <span class="text_desc">
+            作者：<span class="text_desc" th:text="${question.user.name}"></span> |
+            <span class="text_desc" th:text="${question.viewCount}"></span> 个浏览 ·
+            <span class="text_desc" th:text="${question.likeCount}"></span> 个喜欢 ·
+            <span class="text_desc" th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+        </span>
+        <hr/>
+        <div class="panel panel-default">
+<!--            option-->
+            <div class="panel-heading xianyan-menu">
+                <a th:href="@{'/publish/'+${question.id}}"
+                   th:if="${session.user != null && session.user.id == question.creator}"
+                   class="glyphicon glyphicon-pencil icon text_desc">&nbsp;编辑  &nbsp;</a>
+                <a th:href="@{'/publish/'+${question.id}}"
+                   th:if="${session.user != null && session.user.id == question.creator}"
+                   class="glyphicon glyphicon-user icon text_desc">&nbsp;邀请  &nbsp;</a>
+                <a th:href="@{'/publish/'+${question.id}}"
+                   th:if="${session.user != null && session.user.id == question.creator}"
+                   class="glyphicon glyphicon-thumbs-up icon text_desc">&nbsp;点赞  &nbsp;</a>
+                <a th:href="@{'/publish/'+${question.id}}"
+                   th:if="${session.user != null && session.user.id == question.creator}"
+                   class="glyphicon glyphicon-comment icon text_desc">&nbsp;添加评论  &nbsp;</a>
+                <a th:href="@{'/publish/'+${question.id}}"
+                   th:if="${session.user != null && session.user.id == question.creator}"
+                   class="glyphicon glyphicon-paperclip icon text_desc">&nbsp;相关链接  &nbsp;</a>
+            </div>
+<!--            content-->
+            <div class="panel-body panel-title" id="question-markdown-view">
+                <textarea style="display:none;" th:text="${question.description}">
+
+                </textarea>
+            </div>
+            <script type="text/javascript">
+                $(function() {
+                    var testView = editormd.markdownToHTML("question-markdown-view", {
+                        // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+                        // htmlDecode : true,  // Enable / disable HTML tag encode.
+                        // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+                    });
+                });
+            </script>
+            <!-- tag -->
+            <table class="table">
+                <span th:each="tag : ${question.tag.split(',')}">
+                    <button type="button"
+                            th:id="${'tag-' + tag}"
+                            th:tag="${tag}"
+                            class="glyphicon glyphicon-tag label label-info"
+                            data-container="body"
+                            data-toggle="popover"
+                            data-placement="right"
+                            th:text="${'&nbsp;' + tag}"
+                            onclick="tag(this)"
+                            th:data-content="${tag + '标签'}">
+                    </button>
+                </span>
+            </table>
+            <div class="panel-footer"><h4><b th:text="${question.commentCount}"></b> 条回复</h4></div>
+        </div>
+<!--        评论-->
+        <div class="panel" th:each="comment : ${comments}">
+            <div class="panel-heading">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="xianyan-media-object  img-rounded" th:src="${comment.user.avatarUrl}">
+                    </a>
+                </div>
+                <div class="media-body xianyan-media-body text_desc">
+                    <h4 class="media-middle">
+                        <span class="" th:text="${comment.user.name}"></span>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel-body panel-title xianyan-panel-body" th:text="${comment.content}" style="margin-left: 30px"></div>
+            <div class="panel-body xianyan-menu" th:id="'comment-body-' + comment.id" style="margin: 0 15px">
+                <span class="glyphicon glyphicon-thumbs-up icon text_desc">&nbsp;点赞  &nbsp;</span>
+                <span class="glyphicon glyphicon-comment icon text_desc"
+                      role="button"
+                      onclick="secComment(this)"
+                      th:data-id="${comment.id}"
+                      th:text="'&nbsp;' + ${comment.commentCount} + '  回复  &nbsp;'"></span>
+                <span th:text="${#dates.format(comment.gmtCreate, 'yyyy-MM-dd HH:mm')}"
+                      class="icon text_desc" style="float: right"></span>
+<!--                二级评论-->
+                <div class="panel-body panel-title xianyan-panel-body collapse" th:id="${'comment-' + comment.id}">
+                    <div class="xianyan-panel-body">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="评论一下..."
+                               th:id="${'input-' + comment.id}"
+                               style="width: 850px;position: absolute">
+                        <button type="button" class="btn btn-publish btn-success" onclick="comment(this)" th:data-id="${comment.id}">回复</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content_section">
+            <div class="panel-heading" >
+                <div class="media-left">
+                    <a href="#">
+                        <img class="xianyan-media-object  img-rounded" th:src="${session.user != null ? session.user.avatarUrl : '/image/默认头像.png'}">
+                    </a>
+                </div>
+                <div class="media-body xianyan-media-body text_desc">
+                    <h4 class="media-middle">
+                        <span th:text="${session.user != null ? session.user.name : '游客暂时不可评论，请登录！'}"></span>
+                    </h4>
+                </div>
+            </div>
+            <div class="xianyan-panel-body">
+                <input type="hidden" id="question_id" th:value="${question.id}">
+                <textarea class="form-control" rows="6" id="comment_content"></textarea><br/>
+                <button type="button" class="btn btn-publish btn-success" onclick="post()">回复</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-primary xianyan-panel">
+            <div class="panel-heading">发起人</div><br/>
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object img-rounded" th:src="${question.user.avatarUrl}">
+                </a>
+            </div>
+            <div class="media-body xianyan-media-body">
+                <h4 class="media-middle">
+                    <span th:text="${question.user.name}"></span>
+                </h4>
+            </div>
+        </div>
+        <div class="panel panel-info xianyan-panel">
+            <div class="panel-heading">相关问题</div>
+            <div class="panel-body">
+                <p>标签通过regexp正则表达式查询获取</p><hr/>
+                <span style="align: center" th:each="relatedQuestion : ${relatedQuestions}">
+                        <p><a th:text="${relatedQuestion.title}"
+                              style="text-decoration: none"
+                              th:href="@{'/question/' + ${relatedQuestion.id}}"></a>
+                    </p><hr/></span>
+            </div>
+        </div>
+        <div th:insert="~{navigation :: copyRight}"></div>
+    </div>
+</div>
+<div th:insert="~{navigation :: footer}"></div>
+</body>
+<script type="application/javascript">
+    function tag(e) {
+        const tagId = e.getAttribute("tag");
+        $("#tag-" + tagId).popover(true)
+    }
+</script>
+</html>
