@@ -32,8 +32,10 @@
                 </li>
                 <li th:if="${session.user == null}">
                     <!--                    <a href="user/login.html">登入</a>-->
-<!--                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>-->
-                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='b7665c9413e35dabc3f5',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
+                    <!-- 远端 -->
+                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
+                    <!-- 本地 -->
+<!--                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='b7665c9413e35dabc3f5',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>-->
                 </li>
                 <li th:if="${session.user == null}">
                     <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入"
@@ -81,36 +83,6 @@
             <h5>感谢以下平台提供支持</h5><br/>
             <p>运城学院&nbsp;数学与信息技术学院&nbsp;协同创新实验室&nbsp;微尘工作室</p>
         </div>
-    </div>
-</div>
-
-<div th:fragment="copyRight" class="panel panel-success xianyan-panel">
-    <div class="panel-heading">相关问题</div>
-    <div class="panel-body">
-        <table>
-            <tbody>
-            <tr>
-                <th style="width: 140px">kefu@csdn.net</th>
-                <th>客服论坛</th>
-            </tr>
-            <tr>
-                <th style="width: 140px">客服</th>
-                <th>400-660-0108</th>
-            </tr>
-            </tbody>
-        </table>
-        <hr/>
-        <table>
-            <tbody style="align-content: center">
-            <tr>
-                <th>&nbsp;&nbsp;关于我们&nbsp;</th>
-                <th>招聘&nbsp;&nbsp;</th>
-                <th>广告服务&nbsp;</th>
-                <th>网站地图&nbsp;</th>
-            </tr>
-            </tbody>
-        </table>
-        <hr/>
     </div>
 </div>
 </body>

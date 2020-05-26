@@ -32,7 +32,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading" >
-                            <a th:href="@{'/publish/' + ${questionByStick.id}}" th:text="${questionByStick.title}" style="text-decoration: none"></a>
+                            <a th:href="@{'/question/' + ${questionByStick.id}}" th:text="${questionByStick.title}" style="text-decoration: none"></a>
                         </h4>
                         <span th:text="${questionByStick.description}" class="description"></span>
                         <span class="text_desc"><span class="text_desc" th:text="${questionByStick.commentCount}"></span> 个回复 ·<span class="text_desc" th:text="${questionByStick.viewCount}"></span> 个浏览 ·<span class="text_desc" th:text="${questionByStick.likeCount}"></span> 个喜欢 ·<span class="text_desc" th:text="${#dates.format(questionByStick.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span></span>

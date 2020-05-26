@@ -18,20 +18,23 @@
     <script type="application/javascript" src="/js/lib/prettify.min.js"></script>
 </head>
 <body>
-<div th:insert="~{navigation :: nav}"></div>
 <div class="container-fluid main">
-    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-        <h3>
-            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-            <span th:text="${question.title}"></span>
-        </h3>
-        <span class="text_desc">
-            作者：<span class="text_desc" th:text="${question.user.name}"></span> |
-            <span class="text_desc" th:text="${question.viewCount}"></span> 个浏览 ·
-            <span class="text_desc" th:text="${question.likeCount}"></span> 个喜欢 ·
-            <span class="text_desc" th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
-        </span>
-        <hr/>
+    <div th:insert="~{navigation :: nav}"></div>
+    <div th:insert="~{header :: header}"></div>
+    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" style="padding-left: 40px; padding-right: 0">
+        <div class="panel panel-heading">
+            <h3>
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                <span th:text="${question.title}"></span>
+            </h3>
+            <span class="text_desc">
+                作者：<span class="text_desc" th:text="${question.user.name}"></span> |
+                <span class="text_desc" th:text="${question.viewCount}"></span> 个浏览 ·
+                <span class="text_desc" th:text="${question.likeCount}"></span> 个喜欢 ·
+                <span class="text_desc" th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+            </span>
+<!--            <hr/>-->
+        </div>
         <div class="panel panel-default">
 <!--            option-->
             <div class="panel-heading xianyan-menu">
@@ -84,7 +87,7 @@
             </table>
             <div class="panel-footer"><h4><b th:text="${question.commentCount}"></b> 条回复</h4></div>
         </div>
-<!--        评论-->
+        <!--评论-->
         <div class="panel" th:each="comment : ${comments}">
             <div class="panel-heading">
                 <div class="media-left">
@@ -115,13 +118,13 @@
                                class="form-control"
                                placeholder="评论一下..."
                                th:id="${'input-' + comment.id}"
-                               style="width: 850px;position: absolute">
-                        <button type="button" class="btn btn-publish btn-success" onclick="comment(this)" th:data-id="${comment.id}">回复</button>
+                               style="width: 750px; left: 85px; position: absolute">
+                        <button type="button" class="btn btn-publish btn-success" onclick="comment(this)" th:data-id="${comment.id}" style="position: absolute; right: 50px">回复</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="content_section">
+        <div class="panel panel-default" id="content_section">
             <div class="panel-heading" >
                 <div class="media-left">
                     <a href="#">
@@ -136,7 +139,7 @@
             </div>
             <div class="xianyan-panel-body">
                 <input type="hidden" id="question_id" th:value="${question.id}">
-                <textarea class="form-control" rows="6" id="comment_content"></textarea><br/>
+                <textarea class="form-control" rows="6" id="comment_content" style="width: 825px"></textarea><br/>
                 <button type="button" class="btn btn-publish btn-success" onclick="post()">回复</button>
             </div>
         </div>
@@ -158,7 +161,7 @@
         <div class="panel panel-info xianyan-panel">
             <div class="panel-heading">相关问题</div>
             <div class="panel-body">
-                <p>标签通过regexp正则表达式查询获取</p><hr/>
+<!--                <p>标签通过regexp正则表达式查询获取</p><hr/>-->
                 <span style="align: center" th:each="relatedQuestion : ${relatedQuestions}">
                         <p><a th:text="${relatedQuestion.title}"
                               style="text-decoration: none"
@@ -166,7 +169,6 @@
                     </p><hr/></span>
             </div>
         </div>
-        <div th:insert="~{navigation :: copyRight}"></div>
     </div>
 </div>
 <div th:insert="~{navigation :: footer}"></div>
