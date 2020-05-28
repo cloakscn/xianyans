@@ -32,10 +32,10 @@
                 </li>
                 <li th:if="${session.user == null}">
                     <!--                    <a href="user/login.html">登入</a>-->
-                    <!-- 远端 -->
-                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
                     <!-- 本地 -->
-<!--                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='b7665c9413e35dabc3f5',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>-->
+<!--                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='655761913199fe5937ee',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>-->
+                    <!-- 远端 -->
+                    <a th:href="@{https://github.com/login/oauth/authorize(client_id='b7665c9413e35dabc3f5',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">GitHub</a>
                 </li>
                 <li th:if="${session.user == null}">
                     <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入"
@@ -69,19 +69,24 @@
 </div>
 
 <div th:fragment="footer">
-    <div class="main xianyan-footer" style="font-size: 16px">
-        <p>©1999-2020 www.itycu.cn 闲言中文社区·</p>
-        <p>
-            <a href="#">案例</a>
-            <a href="#">支持</a>
-            <a href="#">GitHub</a>
-            <a href="#">码云</a>
-            <a href="#">公众号</a>
-            <a href="#">京ICP备00000000号</a>
-        </p>
-        <div>
-            <h5>感谢以下平台提供支持</h5><br/>
-            <p>运城学院&nbsp;数学与信息技术学院&nbsp;协同创新实验室&nbsp;微尘工作室</p>
+    <div class="xianyan-button" style="background-color: #404553">
+        <div class="main xianyan-footer" style="font-size: 16px">
+            <p>Copyright©微尘工作室版权所有 · 闲言中文社区</p>
+            <p>
+                <a href="#" target="_blank" style="text-decoration: none">案例</a>
+                <a href="#" target="_blank" style="text-decoration: none">支持</a>
+                <a href="http://www.github.com" target="_blank" style="text-decoration: none">GitHub</a>
+                <a href="http://www.gitee.com" target="_blank" style="text-decoration: none">码云</a>
+                <a href="#" target="_blank" style="text-decoration: none">公众号</a>
+                <a href="http://www.beian.miit.gov.cn/" target="_blank" style="text-decoration: none">晋ICP备19014927号</a>
+            </p>
+            <div>
+                <h4>感谢以下平台提供支持</h4><hr style="border-top: 4px solid #5ca9fb"; width="100px"/>
+                <a href="http://www.ycu.edu.cn/" target="_blank" style="text-decoration: none">运城学院</a>
+                <a href="http://www.itycu.com" target="_blank" style="text-decoration: none">数学与信息技术学院</a>
+                <a href="#" target="_blank" style="text-decoration: none">协同创新实验室</a>
+                <a href="#" target="_blank" style="text-decoration: none">微尘工作室</a>
+            </div>
         </div>
     </div>
 </div>

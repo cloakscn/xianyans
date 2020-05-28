@@ -7,15 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6495c897-d0da-4907-b510-012441f25df0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/admin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/xianyan.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/xianyan.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/image/background-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/question.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xianyan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/xianyan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/image/background-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2020-05-25T14-43-32_905-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2020-05-25T15-04-24_721-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-cn.itycu.xianyan.XianyanApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-cn.itycu.xianyan.XianyanApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/cn.itycu.xianyan.XianyanApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/cn.itycu.xianyan.XianyanApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/xianyan-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/xianyan-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/xianyan-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/xianyan-1.0-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xianyan.log/spring.log" beforeDir="false" afterPath="$PROJECT_DIR$/xianyan.log/spring.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,11 +66,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/css" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\工作\MicroWorld\IdeaProjects\xianyans\src\main\resources\static\image" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\工作\MicroWorld\IdeaProjects\xianyans\src\main\resources\static\css" />
+      <recent name="I:\工作\MicroWorld\IdeaProjects\xianyans\src\main\resources\static\image" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="XianyanApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -83,7 +102,10 @@
       <updated>1590368711812</updated>
       <workItem from="1590368722083" duration="14102000" />
       <workItem from="1590485629469" duration="3248000" />
-      <workItem from="1590504312145" duration="4366000" />
+      <workItem from="1590504312145" duration="4668000" />
+      <workItem from="1590546634198" duration="2941000" />
+      <workItem from="1590577571665" duration="2288000" />
+      <workItem from="1590629007573" duration="5361000" />
     </task>
     <task id="LOCAL-00001" summary="部署上线">
       <created>1590395518350</created>
@@ -103,10 +125,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="部署上线" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="538" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590548664860">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="538" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1676.902@0.0.1676.902" timestamp="1590548664860" />
     <state x="533" y="192" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590371628357">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state x="533" y="192" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1676.902@0.0.1676.902" timestamp="1590371628357" />
+    <state x="502" y="137" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590548228391">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="502" y="137" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1676.902@0.0.1676.902" timestamp="1590548228391" />
     <state x="363" y="0" key="CommitChangelistDialog2" timestamp="1590395516833">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
@@ -119,38 +149,38 @@
       <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state x="564" y="147" key="FileChooserDialogImpl/0.0.1676.902@0.0.1676.902" timestamp="1590372059383" />
-    <state width="1622" height="181" key="GridCell.Tab.0.bottom" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.0.bottom" timestamp="1590636172066">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.0.bottom/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
-    <state width="1622" height="181" key="GridCell.Tab.0.center" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.0.bottom/0.0.1676.902@0.0.1676.902" timestamp="1590636172066" />
+    <state width="1622" height="260" key="GridCell.Tab.0.center" timestamp="1590636172066">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.0.center/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
-    <state width="1622" height="181" key="GridCell.Tab.0.left" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.0.center/0.0.1676.902@0.0.1676.902" timestamp="1590636172066" />
+    <state width="1622" height="260" key="GridCell.Tab.0.left" timestamp="1590636172066">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.0.left/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
-    <state width="1622" height="181" key="GridCell.Tab.0.right" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.0.left/0.0.1676.902@0.0.1676.902" timestamp="1590636172066" />
+    <state width="1622" height="260" key="GridCell.Tab.0.right" timestamp="1590636172066">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.0.right/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
-    <state width="1622" height="181" key="GridCell.Tab.1.bottom" timestamp="1590506807588">
+    <state width="1622" height="260" key="GridCell.Tab.0.right/0.0.1676.902@0.0.1676.902" timestamp="1590636172066" />
+    <state width="1622" height="260" key="GridCell.Tab.1.bottom" timestamp="1590636086706">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.1.bottom/0.0.1676.902@0.0.1676.902" timestamp="1590506807588" />
-    <state width="1622" height="181" key="GridCell.Tab.1.center" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.1.bottom/0.0.1676.902@0.0.1676.902" timestamp="1590636086706" />
+    <state width="1622" height="260" key="GridCell.Tab.1.center" timestamp="1590636086705">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.1.center/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
-    <state width="1622" height="181" key="GridCell.Tab.1.left" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.1.center/0.0.1676.902@0.0.1676.902" timestamp="1590636086705" />
+    <state width="1622" height="260" key="GridCell.Tab.1.left" timestamp="1590636086705">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.1.left/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
-    <state width="1622" height="181" key="GridCell.Tab.1.right" timestamp="1590506807587">
+    <state width="1622" height="260" key="GridCell.Tab.1.left/0.0.1676.902@0.0.1676.902" timestamp="1590636086705" />
+    <state width="1622" height="260" key="GridCell.Tab.1.right" timestamp="1590636086705">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state width="1622" height="181" key="GridCell.Tab.1.right/0.0.1676.902@0.0.1676.902" timestamp="1590506807587" />
+    <state width="1622" height="260" key="GridCell.Tab.1.right/0.0.1676.902@0.0.1676.902" timestamp="1590636086705" />
     <state width="1622" height="181" key="GridCell.Tab.2.bottom" timestamp="1590506807588">
       <screen x="0" y="0" width="1676" height="902" />
     </state>

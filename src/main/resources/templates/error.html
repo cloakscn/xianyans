@@ -13,11 +13,15 @@
 <body>
 <div th:insert="~{navigation :: nav}"></div>
 <div class="container-fluid main">
-    <div class="jumbotron">
-        <h1>出错啦！！！</h1>
-        <p th:text="${message}">服务太热了，要不等会再来！！</p>
-        <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
+    <div style="text-align: center; position: relative">
+            <img src="/image/404.jpg" style="width: 1300px">
+            <!--            <p th:text="${message}">服务太热了，要不等会再来！！</p>-->
+            <a class="btn btn-primary btn-lg" href="/" role="button" style="position: absolute; top: 480px; right: 400px">回到主页</a>
+<!--        <h1>出错啦！！！</h1>-->
+<!--        <p th:text="${message}">服务太热了，要不等会再来！！</p>-->
+<!--        <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>-->
     </div>
 </div>
+<div th:insert="~{navigation :: footer}"></div>
 </body>
 </html>

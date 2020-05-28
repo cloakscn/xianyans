@@ -4,6 +4,10 @@ html, body {
     background-color: #EAEAEA;
 }
 
+a {
+    text-decoration: none;
+}
+
 html body {
     margin-top: 61px;
 }
@@ -2193,6 +2197,15 @@ body .fly-user-main {
 }
 
 .xianyan-footer {
-    margin: 50px 190px;
+    padding: 50px 190px;
     text-align: center;
+}
+.xianyan-button {
+    color: #D7D8D9;
+}
+.xianyan-button a {
+    color: #FFFFFF;
+}
+.xianyan-button a:hover {
+    color: #337AB7;
 }
